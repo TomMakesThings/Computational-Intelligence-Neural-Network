@@ -90,3 +90,8 @@ The new weights are converted from real valued to binary by reversing the formul
 With the Baldwinian learning approach, Rprop learning is used to improve fitness, as implemented with Lamarckian learning. However, an individual’s decision variables are not changed after learning and therefore are not passed onto offspring. By not inheriting the improved weights, it takes longer for individuals in the Baldwinian population to improve and converge to an optimum.
 
 <img width=600 src="https://github.com/TomMakesThings/Computational-Intelligence-Neural-Network/blob/main/Images/Baldwinian.png">
+
+# Instructions to Run the Code
+1. [Click here](https://github.com/TomMakesThings/Computational-Intelligence-Neural-Network/archive/refs/heads/main.zip) to download the repository contents
+2. Extract the [Jupyter notebook](https://github.com/TomMakesThings/Computational-Intelligence-Genetic-Algorithm/blob/main/Genetic_Algorithm.ipynb) from the ZIP
+3. Import the notebook into [Colab](https://colab.research.google.com/)
