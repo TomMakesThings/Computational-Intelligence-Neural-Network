@@ -3,9 +3,9 @@
 ### **Problem Definition**
 The aim of this project is to train a feed-forward multi-layer perceptron network to approximate the following function:
 
-<img src="https://render.githubusercontent.com/render/math?math=$y = sin(2x_{1} + 2.0) \text{∔} cos(0.5x_{2}) + 0.5$">
+$y = sin(2x_{1} + 2.0) \text{+} cos(0.5x_{2}) + 0.5$
 
-<img src="https://render.githubusercontent.com/render/math?math=$x_{1}, x_{2} \in [0, 2\pi]$">
+$x_{1}, x_{2} \in [0, 2\pi]$
 
 The neural network is fully connected and has two inputs, two bias neurons, six hidden neurons and one output. Sigmoid activation functions are used in the hidden neurons, and a linear activation function in the output neuron.
 
@@ -15,7 +15,7 @@ The neural network is fully connected and has two inputs, two bias neurons, six 
 
 **Training and Testing Data**
 
-21 random values between <img src="https://render.githubusercontent.com/render/math?math=$[0, 2\pi]$"> are generated for <img src="https://render.githubusercontent.com/render/math?math=$x_{1}$"> and <img src="https://render.githubusercontent.com/render/math?math=$x_{2}$"> and added to lists retrospectively. These values are used to calculate a list of corresponding <img src="https://render.githubusercontent.com/render/math?math=$y$"> values. 11 sets of <img src="https://render.githubusercontent.com/render/math?math=$x_{1}$">, <img src="https://render.githubusercontent.com/render/math?math=$x_{2}$">, <img src="https://render.githubusercontent.com/render/math?math=$y$"> values are written to file `train.dat`, while the remaining values are written to file `test.dat`. 
+21 random values between $[0, 2\pi]$ are generated for $x_{1}$ and $x_{2}$ and added to lists retrospectively. These values are used to calculate a list of corresponding $y$ values. 11 sets of $x_{1}$, $x_{2}$, $y$ values are written to file `train.dat`, while the remaining values are written to file `test.dat`. 
 
 <br>
 
@@ -23,21 +23,21 @@ The neural network is fully connected and has two inputs, two bias neurons, six 
 
 A binary coded genetic algorithm is used for optimising the weights of the neural network. Every individual in the population is initialised with 25 random 15-bit decision variables with each representing a network weight. This includes the weights from the bias nodes. The number of decision variables was calculated using the following formula:
 
-<img src="https://render.githubusercontent.com/render/math?math=$(\text{INPUTS} \text{∔} 1) \times HIDDEN \text{∔} (HIDDEN + 1) \times OUTPUTS$">
+$(\text{INPUTS} \text{+} 1) \times HIDDEN \text{+} (HIDDEN + 1) \times OUTPUTS$
 
 Therefore, the number of weights in the network is:
 
-<img src="https://render.githubusercontent.com/render/math?math=$(2 + 1) \times 6 + (6 + 1) = 25$">
+$(2 + 1) \times 6 + (6 + 1) = 25$
 
 Consequently, the total number of bits to encode the weights per individual is:
 
-<img src="https://render.githubusercontent.com/render/math?math=$15 \times 25 = 375$">
+$15 \times 25 = 375$
 
 <br>
 
 **Population Initialisation and Evalution**
 
-100 individuals are generated in each population. For each, their decision variables are converted from binary to their real value between the range <img src="https://render.githubusercontent.com/render/math?math=$[-10, 10]$">. The fitness function sets individual’s real-valued weights as the weights of the network and calculates the mean squared error. The loss value is then set as the individual’s fitness.
+100 individuals are generated in each population. For each, their decision variables are converted from binary to their real value between the range $[-10, 10]$. The fitness function sets individual’s real-valued weights as the weights of the network and calculates the mean squared error. The loss value is then set as the individual’s fitness.
 
 <br>
 
@@ -51,7 +51,7 @@ After evaluating fitness, individuals are randomly selected as parent pairs. 200
 
 Point mutation is applied to each newly generated offspring with probability:
 
-<img src="https://render.githubusercontent.com/render/math?math=$p = \frac{1}{\text{n bits} \times \text{n decision variables}}$">
+$p = \frac{1}{\text{n bits} \times \text{n decision variables}}$
 
 This means that on average, there will be one mutation per chromosome. Keeping this value low prevents the population from changing too rapidly to allow convergence to an optimum weight set. However, a small amount of mutation helps introduce new variation that may not be possible from parent crossover alone.
 
